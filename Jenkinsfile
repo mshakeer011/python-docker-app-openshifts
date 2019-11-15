@@ -10,7 +10,7 @@ node{
     }
    
    stage("Tag & Push image"){
-      withDockerRegistry([credentialsId: 'dockerID',url: ""]) {
+      withDockerRegistry([credentialsId: 'github-docker',url: ""]) {
           sh 'docker tag manee2k6/itrain-warrior-pyapp manee2k6/itrain-warrior-pyapp:dev'
           sh 'docker push manee2k6/itrain-warrior-pyapp:dev'
           sh 'docker push manee2k6/itrain-warrior-pyapp:latest'
