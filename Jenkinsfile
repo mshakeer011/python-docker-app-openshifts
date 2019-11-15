@@ -2,18 +2,18 @@ node{
    
    stage(" Code Checkout"){
       echo 'App build started..'
-      git credentialsId: 'githubID', url: 'https://github.com/itrainpadman/python-docker-app-openshifts.git'
+      git credentialsId: 'githubID', url: 'https://github.com/itrainwarriors/python-docker-app-openshifts.git'
       }
    
    stage('Docker Build') {
-     def app = docker.build "manee2k6/itrain-padman-py-app"
+     def app = docker.build "manee2k6/itrain-warrior-pyapp"
     }
    
    stage("Tag & Push image"){
       withDockerRegistry([credentialsId: 'dockerID',url: ""]) {
-          sh 'docker tag manee2k6/itrain-padman-py-app manee2k6/itrain-padman-py-app:dev'
-          sh 'docker push manee2k6/itrain-padman-py-app:dev'
-          sh 'docker push manee2k6/itrain-padman-py-app:latest'
+          sh 'docker tag manee2k6/itrain-warrior-pyapp manee2k6/itrain-warrior-pyapp:dev'
+          sh 'docker push manee2k6/itrain-warrior-pyapp:dev'
+          sh 'docker push manee2k6/itrain-warrior-pyapp:latest'
       }
     }
     stage("App deployment started"){
